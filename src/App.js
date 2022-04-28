@@ -24,9 +24,15 @@ function App() {
   }
 
   const onClickButton= function(){
-    
+
     html2canvas(document.querySelector("#meme")).then(canvas => {
-      document.body.appendChild(canvas)
+
+      var img= canvas.toDataURL("image/jpg");
+
+      var link = document.createElement('a');
+      link.download = 'meme.jpg';
+      link.href = img;
+      link.click();
     });
   }
 
@@ -41,9 +47,9 @@ function App() {
       </select><br/><br/>
       <input onChange={onChangeText1} type="text" placeholder="Text 1"/><br/><br/>
       <input onChange={onChangeText2} type="text" placeholder="Text 2"/><br/><br/>
-      <button onClick={onClickButton}>Submit</button>
+      <button onClick={onClickButton}>Download</button>
 
-      <div className="meme">
+      <div className="meme" id="meme">
         <span id="text1">{text1}</span><br/>
         <span id="text2">{text2}</span>
         <img src={"/img/"+image} />

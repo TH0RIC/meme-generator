@@ -64,6 +64,19 @@
 
 .meme img{
 
+  
     width: 100%;
+
+}
+
+
+body{
+
+  background-color: #000;
+}
+
+body .meme{
+
+  background-color: #000;
 
 }
